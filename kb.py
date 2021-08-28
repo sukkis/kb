@@ -1,4 +1,4 @@
-"""Find snippets.
+"""Find snippets. Add snippets.
 
 kb is a script for searching through little snippets,
 stored under /home/$USER/kb.
@@ -52,7 +52,7 @@ def display_content(search_string, directory):
 
 
 def add_kb_entry(directory):
-    """Places the user provided snippet as a file.
+    """Place the user provided snippet as a file.
 
     The temporary file can be later used in searches.
     """
