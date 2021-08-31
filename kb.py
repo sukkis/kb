@@ -1,12 +1,14 @@
 """Find snippets. Add snippets.
 
 kb is a Python3 script for searching through little snippets,
-stored under /home/$USER/kb. For easy use, add alias "kb" to run "/path/to/your/python/ kb.py".
+stored under /home/$USER/kb. For easy use,
+add alias "kb" to run "/path/to/your/python/ kb.py".
 
 Synopsis
     kb [OPTION] [SEARCH WORD]
 
-    E.g. if you have added "kb" as an alias like above, search with "kb vpn" for kb article
+    E.g. if you have added "kb" as an alias like above,
+    search with "kb vpn" for kb article
     "how-to-access-work-vpn" under your /home/$USER/kb directory.
 
 Options:
@@ -38,7 +40,7 @@ def display_content(search_string, directory):
     Help page "man-kb" is just another kb article snippet,
     accessed with "--help" or without arguments.
     """
-    if SEARCH_STRING == "--help" or SEARCH_STRING == "":
+    if SEARCH_STRING in ("--help", ""):
         return print(__doc__)
 
     cmd = (
@@ -75,7 +77,7 @@ def add_kb_entry(directory):
                 break
         content = "\n".join(lines)
         filename = directory + title.lower()
-        with open(filename, "w") as file_object:
+        with open(filename, "w", encoding="utf-8") as file_object:
             file_object.write(content)
     else:
         print("Cannot add a snippet without a valid name.")
