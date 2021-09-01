@@ -1,0 +1,9 @@
+[MASTER]
+ignore = .cache
+
+[MESSAGES CONTROL]
+disable = E203
+
+[FORMAT]
+max-line-length = 88
+

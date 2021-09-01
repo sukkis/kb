@@ -10,6 +10,6 @@ setup(
     description="Find snippets. Add snippets.",
     url="https://github.com/sukkis/kb",
     packages=find_packages(include=["kb", "kb.*"]),
-    setup_requires=["pytest-runner", "pytest-pylint"],
+    setup_requires=["pytest-runner"],
     tests_require=["pytest", "pylint"],
 )
