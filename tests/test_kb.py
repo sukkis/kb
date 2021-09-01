@@ -6,18 +6,21 @@
 """
 
 import re
-import kb.kb as kb
+from kb import kb
 
 
 def test_display_content(capfd):
     """Test if help text is returned."""
     kb.display_content("--help", "/home/$USER/kb/")
     captured = capfd.readouterr()
-    help_regex = re.compile(r'Find snippets')
+    help_regex = re.compile(r"Find snippets")
     assert help_regex.match(captured.out)
 
+
 def setup_function(function):
+    """Dummy setup function."""
     print("setting up", function)
+
 
 def test_func1():
     """Always pass"""
