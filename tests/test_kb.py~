@@ -1,0 +1,16 @@
+"""Unit test module kb.
+
+    Functions:
+    test_display_contents()
+    test_add_kb_entry()
+"""
+
+import re
+from kb import display_content
+
+
+def test_display_content():
+    """Test if help text is returned."""
+    help_contents = display_content("--help", "/home/$USER/kb/")
+    help_regex = re.compile(r'Find snippets')
+    assert help_regex.match(help_contents)
