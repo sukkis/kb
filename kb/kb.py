@@ -24,6 +24,7 @@ import sys
 # Constants
 DIR = os.path.expandvars("/home/$USER/kb/")
 HOME = os.path.expandvars("/home/$USER")
+USER = os.path.expandvars("$USER")
 TEMP_FILE = HOME + "/temp/search"
 
 # If no arguments given, help page is displayed.
@@ -58,6 +59,26 @@ def display_content(search_string, directory):
     return print(os.system(fetch_content_from_file))
 
 
+def list_kb_articles(directory):
+    """List kb articles in the directory path"""
+    cmd = "ls -1 -t " + directory
+
+    articles = os.system(cmd)
+    return articles
+
+
+def pretty_print_articles(directory, user):
+    """Displays article list in a nice way"""
+    print("Knowledge Base articles of " + user)
+    print("**************************************")
+    articles = list_kb_articles(directory)
+    if not articles:
+        print("You do not have any Knowledge Base articles.")
+        print("Consider adding some with 'kb --add'.")
+    else:
+        print(articles)
+
+
 def add_kb_entry(directory):
     """Place the user provided snippet as a file.
 
@@ -87,6 +108,8 @@ def main():
     """Select functions based on command line arguments (search string)."""
     if SEARCH_STRING == "--add":
         add_kb_entry(DIR)
+    elif SEARCH_STRING == "--list":
+        pretty_print_articles(DIR, USER)
     else:
         display_content(SEARCH_STRING, DIR)
 
