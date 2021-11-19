@@ -14,6 +14,7 @@ Synopsis
 Options:
     --help        Show help text.
     --add         Prompt user for input, add snippet with title and content.
+    --list        List all users' kb articles present in the directory.
     Help text is also shown if you do not give any arguments.
 """
 
