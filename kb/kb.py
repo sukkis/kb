@@ -73,7 +73,7 @@ def pretty_print_articles(directory, user):
     print("Knowledge Base articles of " + user)
     print("**************************************")
     articles = list_kb_articles(directory)
-    if not articles:
+    if len(str(articles)) < 1:
         print("You do not have any Knowledge Base articles.")
         print("Consider adding some with 'kb --add'.")
     else:
